@@ -22,7 +22,7 @@ This repository contains my solutions to  the **Blind 75 LeetCode** problems, a 
 - `11_Others/` - Miscellaneous problems and topics.
 
 Each folder contains Python files named with the problem number and title, for example:
-`001_TwoSum.py`
+`001_Contains-Duplicate.py`
 
 Each solution file includes:
 - Problem description (linked to the LeetCode problem)
