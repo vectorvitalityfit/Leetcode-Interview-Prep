@@ -31,7 +31,7 @@ Each solution file includes:
 
 ## How to Use
 - Clone the repo to your local machine.
-- Navigate folderse by topic.
+- Navigate folders by topic.
 - Open and run Python files to review and test solutions.
 
 ## Skills Practiced
