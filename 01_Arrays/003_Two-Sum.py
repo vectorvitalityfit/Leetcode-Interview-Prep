@@ -29,3 +29,12 @@ Only one valid answer exists.
  
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 """
+
+def two_sum(nums, target):
+    dictionary={} # Hash map to store numbers as keys and indices as values
+    for i, num in enumerate(nums):
+        complement=target-num
+        if complement in dictionary:
+            return [dictionary[complement],i] # Return a list containing two indices: index of complement and current index
+        dictionary[num]=i
+    return []
