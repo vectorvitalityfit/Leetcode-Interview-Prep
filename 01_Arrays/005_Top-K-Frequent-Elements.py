@@ -19,3 +19,22 @@ Constraints:
 -1000<=nums[i]<=1000
 1<=k<=number of distinct elements in nums
 """
+from collections import Counter, defaultdict
+import heapq
+
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+
+        # Method 1: Using Counter and heapq.nlargest
+        frequency=Counter(nums) # Count frequency of each element
+        return heapq.nlargest(k,frequency.keys(),key=frequency.get) # Extract k keys with highest counts
+    
+        # Time Complexity: O(n+dlogk), n=len(nums), D=# of distinct elements
+        # Space Complexity: O(d) since we store counts for each distinct element
+        # Issue: Efficient for moderate size inputs, but might struggle with very Large inputs due to heap operations
+
