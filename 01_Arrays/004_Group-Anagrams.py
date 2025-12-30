@@ -26,7 +26,7 @@ Example 3:
 
 Input: strs = ["a"]
 
-Output: [["a"]]
+Output: [["a"]] 
 
 Constraints:
 
@@ -34,3 +34,16 @@ Constraints:
 0 <= strs[i].length <= 100
 strs[i] consists of lowercase English letters.
 """
+
+from collections import defaultdict
+class Solution(object):
+    # Method 1: Sorting Approach
+    def groupAnagrams(self,strs):
+        anagram_map=defaultdict(list) #Use the sorted tuple of characters as a key
+        for s in strs:
+            key=tuple(sorted(s))
+            anagram_map[key].append(s)
+        return list(anagram_map.values())
+    # Time Complexity: O(n*klogk) where n is the length of strs and k is the max length of a string in strs
+    # Space Complexity: O(n*k) for storing the sorted keys and grouped output
+    # Issue: Sorting each string can be costly when k is large
