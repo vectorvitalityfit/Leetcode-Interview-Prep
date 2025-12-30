@@ -38,3 +38,22 @@ class Solution(object):
         # Space Complexity: O(d) since we store counts for each distinct element
         # Issue: Efficient for moderate size inputs, but might struggle with very Large inputs due to heap operations
 
+        # Method 2: Bucket Sort by Frequency Approach
+        if not nums:
+            return []
+        frequency=Counter(nums)
+        max_frequency=max(frequency.values())
+        buckets=[[] for _ in range(max_frequency+1)] # buckets[i] will hold elements with frequency i
+        for num, count in frequency.items():
+            buckets[count].append(num)
+        result=[] # Collect top k frequent elements from buckets highest to lowest frequency
+        for i in range(max_frequency,0,-1):
+            for num in buckets[i]:
+                result.append(num)
+                if len(result)==k:
+                    return result
+        return result
+    
+        # Time Complexity: O(n+d+m), where m=max frequency<=n
+        # Spacce Complexity: O(n+m) for frequency map and buckets
+        # Issue: More complex implementation, but very efficient for large inputs with limited distint elemeents.
