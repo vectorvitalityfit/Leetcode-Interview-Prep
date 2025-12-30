@@ -33,10 +33,10 @@ class Solution(object):
         # Space Complexity: O(n) for sorted copies of the strings.
         # Issue: Not optimal for very large strings due to sorting overhead.
 
-        # Method 2: Frequency Count using Hash Map
+        # Method 2: Frequency Count Method
         if len(s)!=len(t):
             return False
-        counts={}
+        counts={} # Hash map to store character counts
         for char in s: # Count characters in s
             counts[char]=counts.get(char,0)+1
         for char in t: # Decreases counts based on characters in t
@@ -51,3 +51,8 @@ class Solution(object):
     # Time Complexity:  O(n) since we go through a single pass for each string
     # Space Complexity: O(1) since max 26 distint lowercase characters in english alphabet.
     # Issue: Slightly more complex implementation compared to sorting method
+
+    # What if inputs contain unicode characters? How would you adapt your solution to such a case?
+    # Sorthing Method: No changes needed, works with unicode
+    # Frequency Count Method: Works with unicode, but space complexity increases with number of unique characters in input strings.
+    # So, for the frequency count method, space complexity is O(u) where u is the number of unique characters in the input strings.
