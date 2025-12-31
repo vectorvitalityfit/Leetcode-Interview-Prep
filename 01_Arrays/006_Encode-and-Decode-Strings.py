@@ -47,3 +47,7 @@ class Codec:
             result.append(s[j+1:j+1+length]) # Extract the string of that length after the delimiter
             i=j+1+length # Move pointer past this segment
         return result
+    
+    # Time Complexity: encode: O(n+k), n=number of strings, k=total length of all strings, decode: O(n+k)
+    # Space Complexity: O(n+k) for encoded string and output list
+    # The use of a length prefix with a fixed delimiter '#' guarantees correctness even if the strings contain digits or '#' characters themselves. 
