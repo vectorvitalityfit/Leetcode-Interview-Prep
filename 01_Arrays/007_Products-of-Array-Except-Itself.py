@@ -37,3 +37,6 @@ class Solution(object):
             suffix*=nums[i] # Holds product of all nums[i+1] to nums[n-1]
         return output
 
+    # Time Complexity: O(n) since there are two linear passes through the array
+    # Space Complexity: O(1) extra space if we do not count the output array since we only use two scalar variables (prefix and suffix)
+    # This approach avoids division and efficiently computes the product of all elements except the current one by leveraging prefix and suffix products.
