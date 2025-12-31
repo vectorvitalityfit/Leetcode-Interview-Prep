@@ -33,3 +33,6 @@ class Solution(object):
             last_seen[char]=right
             max_len=max(max_len,right-left+1)
         return max_len
+    
+    # Time Complexity: O(n), each character is visited once
+    # Space Complexity: O(min(n,m)), at most, one entry per character
