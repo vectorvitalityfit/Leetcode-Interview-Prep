@@ -18,3 +18,23 @@ Constraints:
 1<=prices.length<=10^5
 0<=prices[i]<=10^4
 """
+
+class Solution(object):
+    def maxProfit(self,prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        minimum_price=float('inf')
+        max_profit=0
+        for price in prices:
+            if price<minimum_price:
+                minimum_price=price
+            else:
+                profit=price-minimum_price
+                if profit>max_profit:
+                    max_profit=profit
+        return max_profit
+    
+    # Time Complexity: O(n), one pass through prices
+    # Space Complexity: O(1), only two variables used
