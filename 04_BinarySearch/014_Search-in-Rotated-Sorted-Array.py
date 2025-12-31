@@ -21,7 +21,7 @@ All nums are unique and originally sorted in ascending order.
 """
 
 class Solution(object):
-    def search(self,nums,target):
+    def search(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
@@ -32,14 +32,17 @@ class Solution(object):
             mid=(left+right)//2
             if nums[mid]==target:
                 return mid
-            if nums[left]<=nums[mid]: # Determine which half is properly sorted
-                if nums[left]<=target<nums[mid]: # Left half is sorted
+            if nums[left]<=nums[mid]: # left to mid is sorted
+                # Is target in [left..mid)?
+                if nums[left]<=target<nums[mid]:
                     right=mid-1
                 else:
-                    if nums[mid]<target<=nums[right]: # Right half is sorted
-                        left=mid+1
-                    else:
-                        right=mid-1
+                    left=mid+1
+            else: # Mid to right end is sorted
+                if nums[mid]<target<=nums[right]: # Check if target in mid to right end
+                    left=mid+1
+                else:
+                    right=mid-1
         return -1
     
     # Time Complexity: O(logn) due to binary search
