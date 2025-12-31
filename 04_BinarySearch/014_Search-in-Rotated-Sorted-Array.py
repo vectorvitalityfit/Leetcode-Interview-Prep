@@ -41,3 +41,6 @@ class Solution(object):
                     else:
                         right=mid-1
         return -1
+    
+    # Time Complexity: O(logn) due to binary search
+    # Space Complexity: O(1), only pointers used
