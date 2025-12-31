@@ -18,3 +18,22 @@ Constraints:
 2<=nums.length<=1000
 -20<=nums[i]<=20
 """
+
+class Solution(object):
+    def productExceptSelf(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        n=len(nums)
+        output=[1]*n
+        prefix=1 # First pass: Calculate prefix products
+        for i in range(n):
+            output[i]=prefix
+            prefix*=nums[i] # Holds product of all nums[0] to nums[i-1]
+        suffix=1 # Second pass: Multiply by suffix products
+        for i in range(n-1,-1,-1):
+            output[i]*=suffix
+            suffix*=nums[i] # Holds product of all nums[i+1] to nums[n-1]
+        return output
+
